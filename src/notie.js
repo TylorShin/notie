@@ -68,7 +68,10 @@ const tick = () => new Promise(resolve => setTimeout(resolve, 0))
 const wait = time => new Promise(resolve => setTimeout(resolve, time * 1000))
 
 const blur = () => {
-  document.activeElement && document.activeElement.blur()
+  document.activeElement &&
+  document.activeElement.blur &&
+  typeof document.activeElement.blur === "function" &&
+  document.activeElement.blur()
 }
 
 const generateRandomId = () => {
